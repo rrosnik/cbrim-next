@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Nunito_Sans } from "next/font/google";
-import "./globals.css";
+
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
+import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,7 +34,12 @@ export default function RootLayout({
         nunitoSans.variable,
       )}
     >
-      <body className="min-h-svh flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <TooltipProvider>
+          <Toaster />
+          {children}
+        </TooltipProvider>
+      </body>
     </html>
   );
 }
