@@ -1,0 +1,82 @@
+{
+"StructuralAnalysisModel": {
+  "properties": {
+    "sections": [
+       {"name": 32, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 3, "Az": 3, "Iy": 1.2, "Iz": 1.2, "Jx": 0.7, "Ca": 1.7, "Cw": 0},
+       {"name": 31, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 2, "Az": 2, "Iy": 0.8, "Iz": 0.8, "Jx": 0.5, "Ca": 1.1, "Cw": 0},
+       {"name": 21, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 3, "Az": 3, "Iy": 1.2, "Iz": 1.2, "Jx": 0.7, "Ca": 1.7, "Cw": 0},
+       {"name": 20, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 2, "Az": 2, "Iy": 0.8, "Iz": 0.8, "Jx": 0.5, "Ca": 1.1, "Cw": 0},
+       {"name": 10, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 3, "Az": 3, "Iy": 1.2, "Iz": 1.2, "Jx": 0.7, "Ca": 1.7, "Cw": 0},
+       {"name": 9, "type": "ElasticFrameSection3d", "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 2, "Az": 2, "Iy": 0.8, "Iz": 0.8, "Jx": 0.5, "Ca": 1.1, "Cw": 0}
+    ],
+    "nDMaterials": [
+
+    ],
+    "uniaxialMaterials": [
+
+    ],
+    "crdTransformations": [
+       {"name": 33, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]},
+       {"name": 22, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]},
+       {"name": 11, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]},
+       {"name": 33, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]},
+       {"name": 22, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]},
+       {"name": 11, "type": "LinearFrameTransf", "vecxz": [0, 1, 0]}
+    ],
+    "patterns": [
+
+    ],
+    "parameters": [
+
+    ]
+
+  },
+  "geometry": {
+    "nodes": [
+       {"name": 1, "ndf": 6, "crd": [0, 25, 0]},
+       {"name": 2, "ndf": 6, "crd": [0, 25, -12]},
+       {"name": 3, "ndf": 6, "crd": [0, 25, -7]},
+       {"name": 4, "ndf": 6, "crd": [11, 25, 0]},
+       {"name": 5, "ndf": 6, "crd": [-11, 25, 0]},
+       {"name": 12, "ndf": 6, "crd": [0, 50, 0]},
+       {"name": 13, "ndf": 6, "crd": [0, 50, -12]},
+       {"name": 14, "ndf": 6, "crd": [0, 50, -7]},
+       {"name": 15, "ndf": 6, "crd": [11, 50, 0]},
+       {"name": 16, "ndf": 6, "crd": [-11, 50, 0]},
+       {"name": 23, "ndf": 6, "crd": [0, 75, 0]},
+       {"name": 24, "ndf": 6, "crd": [0, 75, -12]},
+       {"name": 25, "ndf": 6, "crd": [0, 75, -7]},
+       {"name": 26, "ndf": 6, "crd": [11, 75, 0]},
+       {"name": 27, "ndf": 6, "crd": [-11, 75, 0]}
+    ],
+    "elements": [
+       {"name": 6, "type": "PrismFrame3d", "nodes": [2, 1], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 11, "shear_flag": 0, "section": 1886938463, "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 0, "Az": 0, "Jx": 0.5, "Iy": 0.8, "Iz": 0.8},
+       {"name": 7, "type": "PrismFrame3d", "nodes": [1, 4], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 11, "shear_flag": 0, "section": 1953261156, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2},
+       {"name": 8, "type": "PrismFrame3d", "nodes": [1, 5], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 11, "shear_flag": 0, "section": 1634759470, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2},
+       {"name": 17, "type": "PrismFrame3d", "nodes": [13, 12], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 22, "shear_flag": 0, "section": 976480624, "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 0, "Az": 0, "Jx": 0.5, "Iy": 0.8, "Iz": 0.8},
+       {"name": 18, "type": "PrismFrame3d", "nodes": [12, 15], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 22, "shear_flag": 0, "section": 1, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2},
+       {"name": 19, "type": "PrismFrame3d", "nodes": [12, 16], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 22, "shear_flag": 0, "section": 989096344, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2},
+       {"name": 28, "type": "PrismFrame3d", "nodes": [24, 23], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 33, "shear_flag": 0, "section": 989191712, "E": 3e+10, "G": 1.25e+10, "A": 2, "Ay": 0, "Az": 0, "Jx": 0.5, "Iy": 0.8, "Iz": 0.8},
+       {"name": 29, "type": "PrismFrame3d", "nodes": [23, 26], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 33, "shear_flag": 0, "section": 989193744, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2},
+       {"name": 30, "type": "PrismFrame3d", "nodes": [23, 27], "massperlength": 0, "releasez": 0, "releasey": 0, "transform": 33, "shear_flag": 0, "section": 989196512, "E": 3e+10, "G": 1.25e+10, "A": 3, "Ay": 0, "Az": 0, "Jx": 0.7, "Iy": 1.2, "Iz": 1.2}
+    ],
+    "constraints": [
+       {"name": 0, "node": 2, "dof": 1, "ref_value": 0},
+       {"name": 1, "node": 2, "dof": 2, "ref_value": 0},
+       {"name": 2, "node": 2, "dof": 3, "ref_value": 0},
+       {"name": 3, "node": 2, "dof": 4, "ref_value": 0},
+       {"name": 4, "node": 2, "dof": 5, "ref_value": 0},
+       {"name": 5, "node": 13, "dof": 1, "ref_value": 0},
+       {"name": 6, "node": 13, "dof": 2, "ref_value": 0},
+       {"name": 7, "node": 13, "dof": 3, "ref_value": 0},
+       {"name": 8, "node": 13, "dof": 4, "ref_value": 0},
+       {"name": 9, "node": 13, "dof": 5, "ref_value": 0},
+       {"name": 10, "node": 24, "dof": 1, "ref_value": 0},
+       {"name": 11, "node": 24, "dof": 2, "ref_value": 0},
+       {"name": 12, "node": 24, "dof": 3, "ref_value": 0},
+       {"name": 13, "node": 24, "dof": 4, "ref_value": 0},
+       {"name": 14, "node": 24, "dof": 5, "ref_value": 0}
+    ]
+  }
+}
+}

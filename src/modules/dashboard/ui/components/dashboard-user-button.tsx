@@ -21,11 +21,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { authClient } from "@/lib/auth-client";
-import { ChevronRightIcon, CreditCardIcon, LogOutIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { CreditCardIcon, LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export const DashboardUserButton = () => {
+export const DashboardUserButton: React.FC<
+  React.ComponentProps<typeof DrawerTrigger>
+> = ({ className }) => {
   const { data, isPending } = authClient.useSession();
   const isMobile = useIsMobile();
   const router = useRouter();
@@ -44,7 +47,12 @@ export const DashboardUserButton = () => {
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-center bg-white/5 hover:bg-white/10 overflow-hidden">
+        <DrawerTrigger
+          className={cn(
+            "rounded-lg border border-border/10 flex items-center justify-center bg-white/5 hover:bg-white/10 overflow-hidden",
+            className,
+          )}
+        >
           {data.user.image ? (
             <Avatar>
               <AvatarImage src={data.user.image} />
@@ -60,7 +68,6 @@ export const DashboardUserButton = () => {
             <p className="text-sm truncate w-full">{data.user.name}sadasd</p>
             <p className="text-xs truncate w-full">{data.user.email}</p>
           </div>
-          <ChevronRightIcon className="size-4" />
         </DrawerTrigger>
         <DrawerContent>
           <DrawerHeader className="items-start">
@@ -83,7 +90,13 @@ export const DashboardUserButton = () => {
   }
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-center bg-white/5 hover:bg-white/10 overflow-hidden">
+      <DropdownMenuTrigger
+        className={cn(
+          "rounded-lg border border-border/10 flex gap-2 items-center justify-center bg-white/5 hover:bg-white/10 overflow-hidden",
+          className,
+          "focus-visible:outline-0",
+        )}
+      >
         {data.user.image ? (
           <Avatar>
             <AvatarImage src={data.user.image} />
@@ -99,9 +112,8 @@ export const DashboardUserButton = () => {
           <p className="text-sm truncate w-full">{data.user.name}</p>
           <p className="text-xs truncate w-full">{data.user.email}</p>
         </div>
-        <ChevronRightIcon className="size-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" side="right" className="w-72">
+      <DropdownMenuContent align="end" side="bottom" className="w-72">
         <DropdownMenuLabel>
           <div className="flex flex-col gap-1">
             <span className="text-base font-medium truncate">

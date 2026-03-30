@@ -121,6 +121,14 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+
+    &::-webkit-scrollbar {
+      @apply w-1
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply bg-background rounded-full
+    }
   }
 
   body {
@@ -136,6 +144,7 @@
   svg.logo-svg {
     & path {
       @apply fill-accent;
+
     }
   }
 }

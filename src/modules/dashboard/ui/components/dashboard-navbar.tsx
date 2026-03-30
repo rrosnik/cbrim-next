@@ -6,6 +6,7 @@ import { useSidebar } from "@/components/ui/sidebar";
 import { PanelLeftCloseIcon, PanelLeftIcon, SearchIcon } from "lucide-react";
 
 import { DashboardCommand } from "./dashboard-command";
+import { DashboardUserButton } from "./dashboard-user-button";
 
 export const DashboardNavbar = () => {
   const { toggleSidebar, state, isMobile } = useSidebar();
@@ -54,6 +55,7 @@ export const DashboardNavbar = () => {
             <span>{isMac ? "⌘" : "Ctrl+"}</span>K
           </kbd>
         </Button>{" "}
+        <DashboardUserButton className='ml-auto'/>
       </nav>
     </>
   );

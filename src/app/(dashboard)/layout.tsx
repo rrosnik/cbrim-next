@@ -5,9 +5,9 @@ import React from "react";
 
 const DashboardLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <SidebarProvider>
+    <SidebarProvider open={false}>
       <DashboardSidebar />
-      <main className="flex flex-col flex-1 min-h-svh w-screen bg-muted">
+      <main className="flex flex-col flex-1 h-svh max-h-svh w-screen bg-muted overflow-hidden">
         <DashboardNavbar />
         {children}
       </main>
