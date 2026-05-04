@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Nunito_Sans } from "next/font/google";
-
-import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip";
-
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-
-const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,22 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn(
-        "h-full",
-        "antialiased",
-        inter.className,
-        "font-sans",
-        nunitoSans.variable,
-      )}
-    >
-      <body className="min-h-full flex flex-col">
-        <TooltipProvider>
-          <Toaster />
-          {children}
-        </TooltipProvider>
-      </body>
+    <html lang="en" className={`${inter.className} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

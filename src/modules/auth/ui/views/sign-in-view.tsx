@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { OctagonAlertIcon } from "lucide-react";
@@ -19,12 +18,12 @@ import {
 } from "@/components/ui/field";
 import { InputGroup, InputGroupInput } from "@/components/ui/input-group";
 import Link from "next/link";
-import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
+import { authClient } from "@/lib/authClient";
 
 const formSchema = z.object({
-  email: z.email({ message: "Invalid email" }),
+  email: z.string().email({ message: "Invalid email" }),
   password: z.string().min(1, { message: "Password is required" }),
 });
 
@@ -86,7 +85,7 @@ export const SignInView = () => {
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
-        <CardContent className="grid md:grid-cols-2 p-0">
+        <CardContent className="grid md:grid-cols-1 p-0">
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="p-6 md:p-8"
@@ -194,16 +193,16 @@ export const SignInView = () => {
             </div>
           </form>
 
-          <div className="bg-radial from-primary/40 via-primary/60 to-primary relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+          {/* <div className="bg-radial from-sidebar-accent to-sidebar relative hidden md:flex flex-col gap-y-4 items-center justify-center">
             <Image
               src="/logo.svg"
               alt="logo"
               width={92}
               height={92}
-              className="h-92px w-92px"
+              className="h-23 w-23"
             />
-            <p className="text-2xl font-semibold text-foreground">CBrIM</p>
-          </div>
+            <p className="text-2xl font-semibold text-white">Meet AI</p>
+          </div> */}
         </CardContent>
       </Card>
       <div className="text-muted-foreground text-xs text-center [&>a]:underline [&>a]:underline-offset-4 [&>a]:hover:text-primary text-balance">

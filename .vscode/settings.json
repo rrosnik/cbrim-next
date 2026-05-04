@@ -1,5 +1,8 @@
 {
-  "files.associations": {
-    "*.css": "tailwindcss"
-  }
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"json.schemaDownload.trustedDomains": {
+		"https://ui.shadcn.com/schema.json": true
+	}
 }
