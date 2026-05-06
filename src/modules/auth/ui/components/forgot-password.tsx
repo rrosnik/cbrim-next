@@ -32,6 +32,7 @@ export type ForgotPasswordProps = {
  */
 export function ForgotPassword({ className }: ForgotPasswordProps) {
   const { authClient, basePaths, localization, viewPaths, Link } = useAuth();
+  const resetPasswordPath = `${basePaths.auth}/${viewPaths.auth.resetPassword}`;
 
   const { mutate: requestPasswordReset, isPending } = useRequestPasswordReset(
     authClient,
@@ -43,7 +44,10 @@ export function ForgotPassword({ className }: ForgotPasswordProps) {
   function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    requestPasswordReset({ email: formData.get("email") as string });
+    requestPasswordReset({
+      email: formData.get("email") as string,
+      redirectTo: resetPasswordPath,
+    });
   }
 
   const [fieldErrors, setFieldErrors] = useState<{

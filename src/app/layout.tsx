@@ -19,7 +19,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${inter.className} h-full antialiased`}>
+		<html lang="en" className={`${inter.className} h-full antialiased dark`}>
 			<body className="min-h-full flex flex-col">
 				<QueryClientProvider>
 					<AuthProvider>{children}</AuthProvider>

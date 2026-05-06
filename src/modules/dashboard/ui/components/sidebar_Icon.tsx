@@ -1,8 +1,4 @@
-import {
-	Collapsible,
-	CollapsibleContent,
-	CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import { PlusIcon } from "lucide-react";
 
 import {
 	Sidebar,
@@ -14,88 +10,65 @@ import {
 	SidebarGroupLabel,
 	SidebarHeader,
 	SidebarMenu,
+	SidebarMenuButton,
 	SidebarMenuItem,
-	useSidebar,
 } from "@/components/ui/sidebar";
+
+import { organizationSidebar } from "../../constants";
 import { UserButton } from "@/modules/auth/ui/components/user-button";
-import { ChevronDown, PlusIcon, UserIcon } from "lucide-react";
-import { organizationSidebar } from "../constants";
-import { TeamSwitcher } from "./team-switcher";
-import { Separator } from '@/components/ui/separator';
+import { OrganizationButton } from "@/modules/auth/ui/components/organization-button";
 
 export const Sidebar_Icon = () => {
-	const { state, isMobile } = useSidebar();
-
 	return (
 		<Sidebar
 			variant="sidebar"
 			collapsible={"offcanvas"}
-			style={
-				{
-					"--sidebar-width-icon": "2rem",
-				} as React.CSSProperties
-			}
+			className="data-[sidebar=menu-item]:justify-center data-[sidebar=menu-item]:flex"
 		>
 			<SidebarHeader>
-				<TeamSwitcher
-					teams={[
-						{
-							logo: UserIcon,
-							name: "asdasdad",
-							plan: "enterprise",
-						},
-					]}
-				/>
+				<SidebarMenu>
+					<SidebarMenuItem>
+						<SidebarMenuButton asChild className="h-auto">
+							<OrganizationButton />
+						</SidebarMenuButton>
+					</SidebarMenuItem>
+				</SidebarMenu>
 			</SidebarHeader>
-			<Separator />
 			<SidebarContent>
-				{organizationSidebar.map((org) => (
-					<SidebarGroup key={org.label}>
-						<SidebarGroupLabel>{org.label}</SidebarGroupLabel>
+				{organizationSidebar.map((group) => (
+					<SidebarGroup key={group.label}>
+						<SidebarGroupLabel>{group.label}</SidebarGroupLabel>
 						<SidebarGroupAction>
 							<PlusIcon /> <span className="sr-only">Add Project</span>
 						</SidebarGroupAction>
-						<SidebarGroupContent></SidebarGroupContent>
+						<SidebarGroupContent>
+							<SidebarMenu>
+								{group.items.map((item) => (
+									<SidebarMenuItem key={item.label}>
+										<SidebarMenuButton asChild>
+											<a href={item.url}>
+												{item.Icon}
+												<span>{item.label}</span>
+											</a>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+								))}
+							</SidebarMenu>
+						</SidebarGroupContent>
 					</SidebarGroup>
 				))}
-				<SidebarGroup>
-					<SidebarGroupLabel>Application</SidebarGroupLabel>
-					<SidebarGroupAction>
-						<PlusIcon /> <span className="sr-only">Add Project</span>
-					</SidebarGroupAction>
-					<SidebarGroupContent></SidebarGroupContent>
-				</SidebarGroup>
-				<Collapsible defaultOpen className="group/collapsible">
-					<SidebarGroup>
-						<SidebarGroupLabel asChild>
-							<CollapsibleTrigger>
-								Help
-								<ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-							</CollapsibleTrigger>
-						</SidebarGroupLabel>
-						{/* <SidebarMenu>
-							{organizationSidebar.map((project) => (
-								<SidebarMenuItem key={project.label}>
-									<SidebarMenuButton asChild>
-										<a href={project.url}>
-											<project.icon />
-											<span>{project.name}</span>
-										</a>
-									</SidebarMenuButton>
-								</SidebarMenuItem>
-							))}
-						</SidebarMenu> */}
-						<CollapsibleContent>
-							<SidebarGroupContent />
-						</CollapsibleContent>
-					</SidebarGroup>
-				</Collapsible>
 			</SidebarContent>
 			<SidebarFooter>
-				
 				<SidebarMenu>
 					<SidebarMenuItem>
-						
+						<SidebarMenuButton asChild>
+							<UserButton
+								className="h-fit"
+								size="default"
+								side="top"
+								align="end"
+							/>
+						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
 			</SidebarFooter>
