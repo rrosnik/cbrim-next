@@ -30,60 +30,52 @@ export function ModelViewer({ data }: ModelViewerProps) {
   }, [data, initializeFromData]);
 
   return (
-    <div className="grid h-svh grid-cols-[360px_1fr] gap-4 bg-slate-950 p-4 text-slate-50 items-stretch">
+    <div className="grid h-svh grid-cols-[360px_1fr_360px] gap-4 bg-slate-950 p-4 text-slate-50 items-stretch">
       <div className="flex min-h-0 flex-col gap-4">
-        <Card className="min-h-0 flex-1 border-slate-800 bg-slate-900 text-slate-50  ">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-semibold tracking-wide text-slate-200">
-              Model
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="min-h-0 max-h-full overflow-auto">
-            <Tabs
-              defaultValue="controls"
-              className="flex h-full min-h-0 flex-col"
-            >
-              <TabsList className="grid grid-cols-4 bg-slate-800">
+        <Tabs defaultValue="controls" className="flex h-full min-h-0 flex-col">
+          <Card>
+            <CardHeader className="pb-3 border-b border-b-slate-800 grid-cols-2 items-center">
+              <CardTitle className="text-sm font-semibold tracking-wide text-slate-200">
+                Model
+              </CardTitle>
+              <TabsList className="grid grid-cols-2">
                 <TabsTrigger value="controls">Controls</TabsTrigger>
                 <TabsTrigger value="navigation">Navigation</TabsTrigger>
               </TabsList>
-              <ScrollArea>
-                <ScrollBar orientation="vertical" />
-                <TabsContent value="controls" className="mt-0 overflow-auto">
-                  <Toolbar data={data} />
-                </TabsContent>
-                <TabsContent value="navigation" className="mt-0">
-                  Model navigation
-                  <Tabs
-                    defaultValue="summary"
-                    className="flex min-h-0 flex-col"
-                  >
-                    <TabsList className="grid grid-cols-4 bg-slate-800">
-                      <TabsTrigger value="summary">Summary</TabsTrigger>
-                      <TabsTrigger value="tree">Tree</TabsTrigger>
-                      <TabsTrigger value="legend">Legend</TabsTrigger>
-                      <TabsTrigger value="report">Report</TabsTrigger>
-                    </TabsList>
-                    <div className="mt-4 min-h-0 flex-1">
-                      <TabsContent value="summary" className="mt-0">
-                        <SummaryPanel data={data} />
-                      </TabsContent>
-                      <TabsContent value="tree" className="mt-0">
-                        <TreePanel data={data} />
-                      </TabsContent>
-                      <TabsContent value="legend" className="mt-0">
-                        <LegendPanel data={data} />
-                      </TabsContent>
-                      <TabsContent value="report" className="mt-0">
-                        <ReportPanel data={data} />
-                      </TabsContent>
-                    </div>
-                  </Tabs>
-                </TabsContent>
-              </ScrollArea>
-            </Tabs>
-          </CardContent>
-        </Card>
+            </CardHeader>
+            <CardContent className="min-h-0 max-h-full overflow-scroll">
+              <TabsContent value="controls" className="mt-0 overflow-auto">
+                <p className='mb-2'>Viewer controls</p>
+                <Toolbar data={data} />
+              </TabsContent>
+              <TabsContent value="navigation">
+                <p className='mb-2'>Model navigation</p>
+                <Tabs defaultValue="summary" className="flex min-h-0 flex-col">
+                  <TabsList className="grid grid-cols-4 w-full">
+                    <TabsTrigger value="summary">Summary</TabsTrigger>
+                    <TabsTrigger value="tree">Tree</TabsTrigger>
+                    <TabsTrigger value="legend">Legend</TabsTrigger>
+                    <TabsTrigger value="report">Report</TabsTrigger>
+                  </TabsList>
+                  <div className="mt-4 min-h-0 flex flex-1">
+                    <TabsContent value="summary" className="mt-0">
+                      <SummaryPanel data={data} />
+                    </TabsContent>
+                    <TabsContent value="tree" className="mt-0">
+                      <TreePanel data={data} />
+                    </TabsContent>
+                    <TabsContent value="legend" className="mt-0">
+                      <LegendPanel data={data} />
+                    </TabsContent>
+                    <TabsContent value="report" className="mt-0 flex-1 flex">
+                      <ReportPanel data={data} />
+                    </TabsContent>
+                  </div>
+                </Tabs>
+              </TabsContent>
+            </CardContent>
+          </Card>
+        </Tabs>
       </div>
 
       <Card className="border-slate-800 bg-slate-900 text-slate-50">
@@ -97,7 +89,7 @@ export function ModelViewer({ data }: ModelViewerProps) {
         </CardContent>
       </Card>
 
-      {/* <div className="flex min-h-0 flex-col gap-4">
+      <div className="flex min-h-0 flex-col gap-4">
         <Card className="min-h-0 flex-1 border-slate-800 bg-slate-900 text-slate-50">
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-semibold tracking-wide text-slate-200">
@@ -144,7 +136,7 @@ export function ModelViewer({ data }: ModelViewerProps) {
             </div>
           </CardContent>
         </Card>
-      </div> */}
+      </div>
     </div>
   );
 }

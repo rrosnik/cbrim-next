@@ -13,7 +13,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { Code2Icon } from "lucide-react";
+import { BoxIcon, Code2Icon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,6 +24,11 @@ export const firstSection = [
     label: "Live Codeing",
     href: "/live-coding",
   },
+  {
+    icon: BoxIcon,
+    label: "FEM",
+    href: "/bridge-viewer"
+  }
 ];
 
 export const DashboardSidebar = () => {

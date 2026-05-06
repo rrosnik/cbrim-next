@@ -34,7 +34,7 @@ export default function RootLayout({
         nunitoSans.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col dark">
         <TooltipProvider>
           <Toaster />
           {children}

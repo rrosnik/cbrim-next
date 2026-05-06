@@ -127,8 +127,9 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      @apply bg-background rounded-full
+      @apply bg-foreground/50 rounded-full
     }
+
   }
 
   body {

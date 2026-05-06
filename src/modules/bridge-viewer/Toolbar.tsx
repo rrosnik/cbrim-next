@@ -59,7 +59,7 @@ export function Toolbar({ data }: ToolbarProps) {
   const activeScale = getEffectiveDeformationScale(data, deformationScale);
 
   return (
-    <Card className="border-slate-800 bg-slate-900 text-slate-50">
+    <Card>
       <CardHeader className="pb-3">
         <CardTitle className="text-sm font-semibold tracking-wide text-slate-200">
           Viewer controls
