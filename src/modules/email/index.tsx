@@ -20,7 +20,7 @@ const sendVerification = async ({
   verificationUrl: string;
 }): Promise<void> => {
   void resend.emails.send({
-    from: `Your App <${EMAIL_FROM}>`,
+    from: `CBrIM <${EMAIL_FROM}>`,
     to: [email],
     subject: "Verify your email address",
     react: (
@@ -39,7 +39,7 @@ const sendResetPassword = async ({
   resetUrl: string;
 }): Promise<void> => {
   void resend.emails.send({
-    from: `Your App <${EMAIL_FROM}>`,
+    from: `CBrIM <${EMAIL_FROM}>`,
     to: [email],
     subject: "Reset your password",
     react: <ResetPasswordEmailTemplate name={userName} resetUrl={resetUrl} />,
